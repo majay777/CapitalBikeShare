@@ -1,0 +1,5 @@
+boto3
+uv
+kafka-python
+minio
+s3fs

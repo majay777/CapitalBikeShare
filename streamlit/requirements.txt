@@ -1,0 +1,6 @@
+streamlit
+pandas
+pyspark==3.5.1
+folium
+streamlit_folium
+deltalake
