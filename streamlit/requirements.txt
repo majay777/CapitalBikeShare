@@ -4,3 +4,6 @@ pyspark==3.5.1
 folium
 streamlit_folium
 deltalake
+plotly
+numpy
+sqlalchemy>=2.0.0
