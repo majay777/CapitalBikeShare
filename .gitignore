@@ -1,0 +1,49 @@
+.env
+
+.bruin.yml
+
+# .gitignore
+
+# Ignore PySpark logs and temporary files
+*.log
+.tmp
+
+# Ignore PySpark dependencies and intermediate files
+*.pyc
+__pycache__/
+
+# Ignore Spark configuration files
+spark-defaults.conf
+spark-env.sh
+
+# Ignore virtual environment files
+venv/
+
+# Ignore json files
+*.json
+
+# Ignore csv, .snappy.parquet files
+*.csv
+*.snappy.parquet
+*.snappy.parquet.crc
+*.whl
+*.parquet
+*.jar
+*.xml
+*.properties
+*.original
+*.ipynb_checkpoints
+*.pyc
+*.continue
+*.txt
+*.exe
+
+# Ignore data directory and kafka-data directory, minio-data directory
+Data/
+kafka-data/
+minio-data/
+Notebooks/
+zookeeper-data/
+resources/
+.continue/
+train_location/
