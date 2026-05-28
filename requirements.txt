@@ -3,3 +3,5 @@ uv
 kafka-python
 minio
 s3fs
+pandas
+apache-airflow-providers-apache-spark
