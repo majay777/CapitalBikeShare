@@ -11,7 +11,7 @@ from airflow.sdk.timezone import datetime
 # Config
 # -----------------------
 MINIO_ENDPOINT = "http://minio:9000"
-MINIO_ACCESS_KEY = "minioadmin"
+MINIO_ACCESS_KEY = "MIN"
 MINIO_SECRET_KEY = "minioadmin"
 BUCKET = "tripdata"
 

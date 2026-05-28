@@ -7,3 +7,4 @@ deltalake
 plotly
 numpy
 sqlalchemy>=2.0.0
+s3fs

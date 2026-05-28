@@ -1,17 +1,17 @@
 import streamlit as st
-
+# from utils.styles import inject_css; inject_css()
 st.set_page_config(
     page_title="Capital Bike Share Analytics",
     page_icon="🚲",
     layout="wide"
-)# ─────────────────────────────────────────────
+)  # ─────────────────────────────────────────────
 # Custom CSS
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap');
 
-    html, body, [class*="css"] {
+    html, body, .stApp {
         font-family: 'DM Sans', sans-serif;
     }
     h1, h2, h3 {
@@ -47,8 +47,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-
 
 st.title("🚲 Capital Bike Share Advanced Analytics Dashboard")
 

@@ -1,7 +1,23 @@
 import pandas as pd
 import pyarrow as pa
+import streamlit as st
+
+# @st.cache_data(ttl=60)
+# def load_history():
+#     dt = DeltaTable(
+#         "s3://tripdata/trips",
+#         storage_options={
+#             "AWS_ACCESS_KEY_ID": "MIN",
+#             "AWS_SECRET_ACCESS_KEY": "minioadmin",
+#             "AWS_ENDPOINT": "http://minio:9000",
+#             "AWS_S3_URL_STYLE": "path",
+#             "AWS_ALLOW_HTTP": "true"
+#         }
+#     )
+#     return dt.to_pandas()
 
 
+@st.cache_data
 def load_data(year):
     import pyarrow.dataset as ds
     import s3fs
@@ -9,7 +25,7 @@ def load_data(year):
     fs = s3fs.S3FileSystem(
         key="minioadmin",
         secret="minioadmin",
-        client_kwargs={"endpoint_url": "http://localhost:9000"}
+        client_kwargs={"endpoint_url": "http://minio:9000"}
     )
 
     schema = pa.schema([
