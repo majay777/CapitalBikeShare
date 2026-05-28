@@ -25,7 +25,7 @@ RUN apt-get update && \
 COPY --from=spark /opt/spark /opt/spark
 
 # Copy local Spark JARs (delta, kafka connectors, etc.)
-COPY spark/ivy/jars/*.jar /opt/spark/jars/
+# COPY spark/ivy/jars/*.jar /opt/spark/jars/
 
 # Set Spark + Java env vars
 ENV SPARK_HOME=/opt/spark
