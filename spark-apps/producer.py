@@ -19,7 +19,6 @@
 #     time.sleep(5)
 
 
-
 import json, time, requests
 from kafka import KafkaProducer
 import requests.exceptions as request_exceptions
@@ -29,12 +28,6 @@ server = 'kafka:9092'
 
 def json_serializer(data1):
     return json.dumps(data1).encode('utf-8')
-
-
-
-
-
-
 
 
 producer = KafkaProducer(

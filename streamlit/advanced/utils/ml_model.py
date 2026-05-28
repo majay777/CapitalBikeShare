@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 import streamlit as st
 
+
 @st.cache_resource
 def train_model(df):
     demand = df.groupby(["hour"]).size().reset_index(name="trips")

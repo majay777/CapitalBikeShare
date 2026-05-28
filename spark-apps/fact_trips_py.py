@@ -10,7 +10,8 @@ spark = (
     .config("spark.hadoop.fs.s3a.secret.key", "minioadmin")
     .config("spark.hadoop.fs.s3a.path.style.access", "true")
     .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
-    .config("spark.jars.packages", "io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.4,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.2")
+    .config("spark.jars.packages",
+            "io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.4,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.2")
     .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.2")
     .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     .getOrCreate()
@@ -18,8 +19,6 @@ spark = (
 )
 
 # df = spark.read.format("delta").load("s3a://tripdata/delta/trips/")
-
-
 
 
 df3 = spark.read.parquet("s3a://tripdata/parquet/trips/")
@@ -52,4 +51,3 @@ df2 = spark.read.format("delta").load("s3a://tripdata/delta/fact_trips")
 
 print(df2.printSchema())
 print(df2.count())
-

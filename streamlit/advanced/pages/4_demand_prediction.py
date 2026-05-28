@@ -43,12 +43,14 @@ option = year_selector()
 
 st.title("Demand Prediction")
 
+
 # Cache the trained model keyed on the selected year so it doesn't retrain
 # on every widget interaction — only when the year actually changes.
 @st.cache_resource
 def get_model(year):
     data = load_data(year)
     return train_model(data)
+
 
 model = get_model(option)
 

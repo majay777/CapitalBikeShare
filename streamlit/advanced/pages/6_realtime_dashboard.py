@@ -25,20 +25,20 @@ def get_live_bikes() -> Optional[pd.DataFrame]:
         headers = {
             'User-Agent': 'Capital-Bike-Share-Dashboard/1.0'
         }
-        
+
         info_response = requests.get(station_info_url, headers=headers, timeout=10)
         info_response.raise_for_status()
         info_data = info_response.json()
-        
+
         status_response = requests.get(station_status_url, headers=headers, timeout=10)
         status_response.raise_for_status()
         status_data = status_response.json()
-        
+
         df_info = pd.DataFrame(info_data["data"]["stations"])
         df_status = pd.DataFrame(status_data["data"]["stations"])
-        
+
         return df_info.merge(df_status, on="station_id", how="left")
-        
+
     except requests.exceptions.RequestException as e:
         logger.error(f"API request failed: {e}")
         st.error(f"Failed to fetch station data: {str(e)}")
@@ -82,6 +82,7 @@ filtered_df["last_reported"] = pd.to_datetime(
     filtered_df["last_reported"], unit="s", utc=False
 )
 
+
 # ── Color by capacity ─────────────────────────────────────────────────────────
 
 def get_color(val: int) -> list:
@@ -89,11 +90,11 @@ def get_color(val: int) -> list:
     Check higher threshold first to avoid unreachable branches.
     """
     if val > 20:
-        return [255, 165, 0]   # Orange — large station
+        return [255, 165, 0]  # Orange — large station
     elif val > 10:
-        return [255, 0, 0]     # Red — medium station
+        return [255, 0, 0]  # Red — medium station
     else:
-        return [0, 255, 0]         # Green — small station
+        return [0, 255, 0]  # Green — small station
 
 
 filtered_df["color"] = filtered_df["capacity"].apply(get_color)

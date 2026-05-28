@@ -17,6 +17,17 @@ models:
     with:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+  - name: Qwen Coder
+    provider: ollama
+    model: qwen2.5-coder:7b
+    apiBase: http://localhost:11434
+
+    tabAutocompleteModel:
+      title: Qwen Autocomplete
+      provider: ollama
+      model: qwen2.5-coder:7b
+      apiBase: http://localhost:11434
+
 # MCP Servers that Continue can access
 # https://docs.continue.dev/customization/mcp-tools
 mcpServers:

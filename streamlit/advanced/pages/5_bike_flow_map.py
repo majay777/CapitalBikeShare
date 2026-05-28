@@ -232,11 +232,12 @@ from utils.Ui import year_selector
 
 # ── CONFIG ───────────────────────────────────────────────────────────────────
 
-MAX_ROWS = 5000          # safe limit for browser
-TOP_STATIONS = 100       # avoid UI overload
+MAX_ROWS = 5000  # safe limit for browser
+TOP_STATIONS = 100  # avoid UI overload
 
 st.set_page_config(layout="wide")
 st.title("🚴 Bike Trip Flow Map")
+
 
 # ── DATA LOADING (CACHED) ─────────────────────────────────────────────────────
 
@@ -244,6 +245,7 @@ st.title("🚴 Bike Trip Flow Map")
 def get_data(year):
     df = load_data(year)
     return df
+
 
 year = year_selector()
 df = get_data(year)
@@ -297,7 +299,7 @@ mode = st.sidebar.radio(
 filtered_df = df[
     (df["member_casual"].isin(user_type)) &
     (df["rideable_type"].isin(bike_type))
-    ].copy()
+].copy()
 
 if len(date_range) == 2:
     filtered_df = filtered_df[

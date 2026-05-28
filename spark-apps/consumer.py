@@ -37,7 +37,6 @@ spark = (
 
 spark.sparkContext.setLogLevel("WARN")
 
-
 kafka_servers = "kafka:9092"
 df = (
     spark.readStream
@@ -96,7 +95,6 @@ parsed = (
     .select("data.*")
 )
 
-
 query = (
     parsed.writeStream
     .format("delta")
@@ -106,7 +104,6 @@ query = (
 )
 
 query.awaitTermination()
-
 
 """
 docker exec -it spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 --conf spark.jars.ivy=/opt/spark/ivy --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.2,io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.4 --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog /opt/spark-apps/consumer.py

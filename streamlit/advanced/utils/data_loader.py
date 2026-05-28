@@ -2,6 +2,7 @@ import pandas as pd
 import pyarrow as pa
 import streamlit as st
 
+
 # @st.cache_data(ttl=60)
 # def load_history():
 #     dt = DeltaTable(

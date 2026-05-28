@@ -3,7 +3,6 @@ import plotly.express as px
 import pyarrow as pa
 import streamlit as st
 
-
 st.set_page_config(
     page_title="Capital Bike Share Dashboard",
     layout="wide"
